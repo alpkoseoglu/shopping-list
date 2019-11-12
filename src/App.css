@@ -12,11 +12,30 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
 }
 
 .App-link {
   color: #09d3ac;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+}
+
+li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width : 50vh;
+  text-align: left;
+}
+
+.delete {
+  width: 20px;
+  height: 20px;
+  margin: auto;
 }
