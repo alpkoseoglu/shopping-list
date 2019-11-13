@@ -5,7 +5,7 @@ class App extends React.Component {
   constructor () {
     super ();
     this.state = {
-      items : JSON.parse(localStorage.getItem("items"))
+      items : JSON.parse(localStorage.getItem("items")) ? JSON.parse(localStorage.getItem("items")) : ["apple"]
     }
   }
 
@@ -39,24 +39,21 @@ class App extends React.Component {
 
   render () {
     return (
-      <div className="App">
-        <header className="App-header">
+      <div className="App App-header">
           <h1>Shopping List</h1>
-          <input type="text" placeholder="What Do You Need?" ref="title"/>
-          <input type="button" value="Add" onClick={this.add.bind(this)}/>
+          <input id="input" type="text" placeholder="What Do You Need?" ref="title"/>
+          <input id="add" type="button" value="Add" onClick={this.add.bind(this)}/>
           <br/><br/>
           <ul>
             {this.state.items.map((item, index) => {
               return (
                 <li key={index}>
-                  <p>{item}</p>
+                  <p>{index+1+"- "}{item}</p>
                   <input className="delete" type="button" value="X" onClick={this.delete.bind(this)} data-key={index}/> 
                 </li>
               );
             }, this)}
           </ul>
-        </header>
-        
       </div>
     );
   }
