@@ -3,13 +3,13 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: whitesmoke;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(36, 35, 35);
 }
 
 .App-link {
@@ -24,13 +24,18 @@
 }
 
 #add {
-  margin: 2%;
-  width: 15%;
+  font-size: xx-large;
+  background-color: chartreuse;
+  border-radius: 50%;
+  border-width: thin;
+  border-color: greenyellow;
+  margin: 1%;
+  width: 3%;
 }
 
 ul {
   margin-top: -5%;
-  padding : 0;
+  padding-right: 5%;
 }
 
 li {
@@ -38,8 +43,16 @@ li {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width : 50vh;
+  width: 50vh;
+  height: 5vh;
+  margin: 5%;
+  padding: 1%;
   text-align: left;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 3%;
+  border-color: rgb(36, 35, 35);
+  background-color: white;
 }
 
 p {
@@ -48,10 +61,12 @@ p {
 }
 
 .delete {
-  width: 10%;
+  width: 30%;
   margin: auto;
-  border-radius: 50%;
-  color: red;
+  border-radius: 5%;
+  border: none;
+  color: whitesmoke;
+  background-color: lightcoral;
   cursor: pointer;
   font-size: 20px;
 }
