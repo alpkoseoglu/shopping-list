@@ -29,6 +29,14 @@ class App extends React.Component {
     this.setState({ value: "", items: JSON.parse(localStorage.getItem("items")) })
   }
 
+  edit(e) {
+    let index = e.target.getAttribute("data-key")
+    let items = JSON.parse(localStorage.getItem("items"))
+    this.setState({ value: items[index], items: items })
+    items.splice(index, 1)
+    localStorage.setItem("items", JSON.stringify(items))
+  }
+
   delete(e) {
     let index = e.target.getAttribute("data-key")
     let list = JSON.parse(localStorage.getItem("items"))
