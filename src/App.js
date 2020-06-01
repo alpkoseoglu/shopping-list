@@ -29,26 +29,6 @@ class App extends React.Component {
     this.setState({ value: "", items: JSON.parse(localStorage.getItem("items")) })
   }
 
-  add() {
-    let title = this.refs.title.value
-    if (title.trim() !== "") {
-      if (localStorage.getItem("items") == null) {
-        let items = []
-        items.push(title)
-        localStorage.setItem("items", JSON.stringify(items))
-        this.refs.title.value = ""
-      } else {
-        let items = JSON.parse(localStorage.getItem("items"))
-        items.push(title)
-        localStorage.setItem("items", JSON.stringify(items))
-        this.refs.title.value = ""
-      }
-    }
-    this.setState({
-      items: JSON.parse(localStorage.getItem("items")),
-    })
-  }
-
   delete(e) {
     let index = e.target.getAttribute("data-key")
     let list = JSON.parse(localStorage.getItem("items"))
@@ -77,6 +57,7 @@ class App extends React.Component {
                   {index + 1 + "- "}
                   {item}
                 </p>
+                <input className="edit" type="button" value="Edit" onClick={this.edit.bind(this)} data-key={index} />
                 <input className="delete" type="button" value="Delete" onClick={this.delete.bind(this)} data-key={index} />
               </li>
             )
