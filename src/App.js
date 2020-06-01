@@ -5,22 +5,44 @@ class App extends React.Component {
   constructor() {
     super()
     this.state = {
-      items: JSON.parse(localStorage.getItem("items")) ? JSON.parse(localStorage.getItem("items")) : ["apple"],
+      value: "",
+      items: JSON.parse(localStorage.getItem("items")) || [],
     }
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+
+    localStorage.setItem("items", JSON.stringify(this.state.items))
+  }
+
+  handleChange(event) {
+    this.setState({ value: event.target.value })
+  }
+
+  handleSubmit(event) {
+    event.preventDefault()
+    let val = this.state.value.trim()
+    if (val !== "") {
+      let item = JSON.parse(localStorage.getItem("items"))
+      item.push(val)
+      localStorage.setItem("items", JSON.stringify(item))
+    }
+    this.setState({ value: "", items: JSON.parse(localStorage.getItem("items")) })
   }
 
   add() {
     let title = this.refs.title.value
-    if (localStorage.getItem("items") == null) {
-      let items = []
-      items.push(title)
-      localStorage.setItem("items", JSON.stringify(items))
-      this.refs.title.value = ""
-    } else {
-      let items = JSON.parse(localStorage.getItem("items"))
-      items.push(title)
-      localStorage.setItem("items", JSON.stringify(items))
-      this.refs.title.value = ""
+    if (title.trim() !== "") {
+      if (localStorage.getItem("items") == null) {
+        let items = []
+        items.push(title)
+        localStorage.setItem("items", JSON.stringify(items))
+        this.refs.title.value = ""
+      } else {
+        let items = JSON.parse(localStorage.getItem("items"))
+        items.push(title)
+        localStorage.setItem("items", JSON.stringify(items))
+        this.refs.title.value = ""
+      }
     }
     this.setState({
       items: JSON.parse(localStorage.getItem("items")),
@@ -41,8 +63,10 @@ class App extends React.Component {
     return (
       <div className="App App-header">
         <h1>Shopping List</h1>
-        <input id="input" type="text" placeholder="What Do You Need?" ref="title" />
-        <input id="add" type="button" value="+" onClick={this.add.bind(this)} />
+        <form onSubmit={this.handleSubmit}>
+          <input id="input" type="text" placeholder="What Do You Need?" ref="title" value={this.state.value} onChange={this.handleChange} />
+          <input id="add" type="submit" value="+" />
+        </form>
         <br />
         <br />
         <ul>

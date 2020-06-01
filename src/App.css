@@ -16,10 +16,15 @@
   color: #09d3ac;
 }
 
+form {
+  display: flex;
+  flex-direction: row;
+}
+
 #input {
-  width: 30%;
+  width: 90%;
   height: 5vh;
-  border-radius: 5%;
+  border-radius: 3%;
   font-size: 16px;
 }
 
@@ -27,10 +32,12 @@
   font-size: xx-large;
   background-color: chartreuse;
   border-radius: 50%;
-  border-width: thin;
+  border-width: none;
   border-color: greenyellow;
-  margin: 1%;
-  width: 3%;
+  margin-left: 5%;
+  margin-right: -15%;
+  width: 40px;
+  height: 40px;
 }
 
 ul {
