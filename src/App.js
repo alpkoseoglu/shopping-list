@@ -7,6 +7,7 @@ class App extends React.Component {
     this.state = {
       value: "",
       items: JSON.parse(localStorage.getItem("items")) || [],
+      itemIndex: 0,
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -23,7 +24,8 @@ class App extends React.Component {
     let val = this.state.value.trim()
     if (val !== "") {
       let item = JSON.parse(localStorage.getItem("items"))
-      item.push(val)
+      item.splice(this.state.itemIndex, 0, val)
+      this.setState({ itemIndex: 0 })
       localStorage.setItem("items", JSON.stringify(item))
     }
     this.setState({ value: "", items: JSON.parse(localStorage.getItem("items")) })
@@ -31,6 +33,7 @@ class App extends React.Component {
 
   edit(e) {
     let index = e.target.getAttribute("data-key")
+    this.setState({ itemIndex: index })
     let items = JSON.parse(localStorage.getItem("items"))
     this.setState({ value: items[index], items: items })
     items.splice(index, 1)

@@ -3,13 +3,19 @@
 }
 
 .App-header {
-  background-color: whitesmoke;
+  background: radial-gradient(#edf0ed, #94f3ce);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: calc(10px + 2vmin);
-  color: rgb(36, 35, 35);
+  font-size: calc(15px + 2vmin);
+}
+
+h1 {
+  background: -webkit-linear-gradient(120deg, rgb(77, 110, 182), lightcoral);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .App-link {
@@ -24,20 +30,32 @@ form {
 #input {
   width: 90%;
   height: 5vh;
-  border-radius: 3%;
+  outline: none;
+  border-radius: 0%;
   font-size: 16px;
+  border: none;
+  border-bottom: 1px solid red;
 }
 
 #add {
   font-size: xx-large;
-  background-color: chartreuse;
+  background: radial-gradient(#a6e4a6, #07a367);
+  border: solid;
   border-radius: 50%;
-  border-width: none;
-  border-color: greenyellow;
+  border-width: 2px;
+  border-color: #a6e4a6;
   margin-left: 5%;
   margin-right: -15%;
   width: 40px;
   height: 40px;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0 4px #999;
+}
+
+#add:active {
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
 
 ul {
