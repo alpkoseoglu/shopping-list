@@ -24,7 +24,7 @@ class App extends React.Component {
     let val = this.state.value.trim()
     if (val !== "") {
       let item = JSON.parse(localStorage.getItem("items"))
-      item.splice(this.state.itemIndex, 0, val)
+      item.splice(this.state.itemIndex, 1, val)
       this.setState({ itemIndex: 0 })
       localStorage.setItem("items", JSON.stringify(item))
     }
@@ -36,7 +36,7 @@ class App extends React.Component {
     this.setState({ itemIndex: index })
     let items = JSON.parse(localStorage.getItem("items"))
     this.setState({ value: items[index], items: items })
-    items.splice(index, 1)
+    //items.splice(index, 1)
     localStorage.setItem("items", JSON.stringify(items))
   }
 
