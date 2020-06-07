@@ -24,7 +24,7 @@ class App extends React.Component {
     let val = this.state.value.trim()
     if (val !== "") {
       let item = JSON.parse(localStorage.getItem("items"))
-      item.splice(this.state.itemIndex, 1, val)
+      item.splice(this.state.itemIndex, this.state.itemIndex !== 0 ? 1 : 0, val)
       this.setState({ itemIndex: 0 })
       localStorage.setItem("items", JSON.stringify(item))
     }
@@ -65,7 +65,7 @@ class App extends React.Component {
             return (
               <li key={index}>
                 <p>
-                  {index + 1 + "- "}
+                  {index + 1 + ") "}
                   {item}
                 </p>
                 <input className="edit" type="button" value="Edit" onClick={this.edit.bind(this)} data-key={index} />

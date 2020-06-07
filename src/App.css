@@ -87,21 +87,63 @@ p {
 
 .delete {
   width: 10%;
-  border-radius: 5%;
+  border-radius: 2%;
   border: none;
   color: whitesmoke;
   background-color: lightcoral;
   cursor: pointer;
-  font-size: 0.7em;
+  font-size: 0.6em;
 }
 
 .edit {
   width: 10%;
   margin-right: 1%;
-  border-radius: 5%;
+  border-radius: 2%;
   border: none;
   color: whitesmoke;
   background-color: rgb(77, 110, 182);
   cursor: pointer;
-  font-size: 0.7em;
+  font-size: 0.6em;
+}
+
+@media screen and (min-width: 720px) and (max-width: 900px) {
+  #edit,
+  #delete,
+  #input,
+  p,
+  li {
+    font-size: 0.7em;
+  }
+}
+
+@media screen and (min-width: 530px) and (max-width: 720px) {
+  #input,
+  p,
+  li {
+    font-size: 0.7em;
+  }
+
+  li {
+    width: 80vw;
+  }
+
+  #edit,
+  #delete {
+    font-size: 0.6em;
+    width: 15%;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  #input,
+  p,
+  li,
+  #edit,
+  #delete {
+    font-size: 0.6em;
+  }
+
+  li {
+    width: 80vw;
+  }
 }
